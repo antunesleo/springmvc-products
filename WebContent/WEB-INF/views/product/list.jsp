@@ -17,7 +17,7 @@
 	<div class="container">
 		<div class="row">
 			<br />
-			<a hreft="newProduct" class="waves-effect waves-light btn"><i class="material-icons left">input</i>Nova tarefa</a>
+			<a href="newProduct" class="waves-effect waves-light btn"><i class="material-icons left">input</i>Nova tarefa</a>
 		</div>
 		<div class="row">
 			<table class="bordered striped responsive-table">
@@ -72,6 +72,7 @@
 			</table>
 		</div>
 	</div>
+	<c:import url="../resources/footer.jsp"></c:import>
 	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/materialize.min.js"></script>
 </body>

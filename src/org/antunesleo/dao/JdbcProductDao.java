@@ -58,7 +58,7 @@ public class JdbcProductDao {
 		}
 	}
 	
-	public void adiciona(Product product) {
+	public void add(Product product) {
 		try {
 			String sql = "INSERT INTO product (description, name, active, discontinued, sold, manufactured, "
 					+ "guaranteeDays, price, uom, untPerPallet, category) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
