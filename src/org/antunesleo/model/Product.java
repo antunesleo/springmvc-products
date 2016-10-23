@@ -8,79 +8,87 @@ public class Product {
 	private Long id;
 	private String name;
 	private String description;
-	private	boolean isActive;
+	private String category;
+	private	boolean active;
 	private Integer untPerPallet;
 	private Integer guaranteeDays;
 	private String uom;
-	private boolean isManufactured;
-	private boolean isSold;
-	private boolean isDiscontinued;
-	private double price;
+	private boolean manufactured;
+	private boolean sold;
+	private boolean discontinued;
+	private double price;	
 	
 	public Long getId() {
 		return id;
 	}
-	public void setId(Long id) {
-		this.id = id;
-	}
 	public String getName() {
 		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
 	}
 	public String getDescription() {
 		return description;
 	}
-	public void setDescription(String description) {
-		this.description = description;
-	}
 	public boolean isActive() {
-		return isActive;
-	}
-	public void setActive(boolean isActive) {
-		this.isActive = isActive;
+		return active;
 	}
 	public Integer getUntPerPallet() {
 		return untPerPallet;
 	}
-	public void setUntPerPallet(Integer untPerPallet) {
-		this.untPerPallet = untPerPallet;
-	}
 	public Integer getGuaranteeDays() {
 		return guaranteeDays;
-	}
-	public void setGuaranteeDays(Integer guaranteeDays) {
-		this.guaranteeDays = guaranteeDays;
 	}
 	public String getUom() {
 		return uom;
 	}
-	public void setUom(String uom) {
-		this.uom = uom;
-	}
 	public boolean isManufactured() {
-		return isManufactured;
-	}
-	public void setManufactured(boolean isManufactured) {
-		this.isManufactured = isManufactured;
+		return manufactured;
 	}
 	public boolean isSold() {
-		return isSold;
-	}
-	public void setSold(boolean isSold) {
-		this.isSold = isSold;
+		return sold;
 	}
 	public boolean isDiscontinued() {
-		return isDiscontinued;
-	}
-	public void setDiscontinued(boolean isDiscontinued) {
-		this.isDiscontinued = isDiscontinued;
+		return discontinued;
 	}
 	public double getPrice() {
 		return price;
 	}
+	public void setId(Long id) {
+		this.id = id;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	public void setActive(boolean active) {
+		this.active = active;
+	}
+	public void setUntPerPallet(Integer untPerPallet) {
+		this.untPerPallet = untPerPallet;
+	}
+	public void setGuaranteeDays(Integer guaranteeDays) {
+		this.guaranteeDays = guaranteeDays;
+	}
+	public void setUom(String uom) {
+		this.uom = uom;
+	}
+	public void setManufactured(boolean manufactured) {
+		this.manufactured = manufactured;
+	}
+	public void setSold(boolean sold) {
+		this.sold = sold;
+	}
+	public void setDiscontinued(boolean discontinued) {
+		this.discontinued = discontinued;
+	}
 	public void setPrice(double price) {
 		this.price = price;
 	}
+	public String getCategory() {
+		return category;
+	}
+	public void setCategory(String category) {
+		this.category = category;
+	}
+	
 }
