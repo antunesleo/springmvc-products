@@ -1,5 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="display" uri="http://displaytag.sf.net" %>
 
 <html>
 <head>
@@ -16,14 +17,10 @@
 <body>
 	<c:import url="../resources/header.jsp" />
 	<div class="container">
+		<br />
 		<div class="row">
 			<div class="col s12 m12">
-				<br />
-				<a href="newProduct" class="waves-effect waves-light btn"><i class="material-icons left">input</i>Nova tarefa</a>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col s12 m12">
+				<!--  normal table 
 				<table class="bordered striped responsive-table">
 					<thead>
 						<tr>
@@ -61,12 +58,7 @@
 							<c:if test="${product.discontinued eq true }">
 								<td>Sim</td>
 							</c:if>
-							<c:if test="${product.manufactured eq false}">
-								<td>Não</td>
-							</c:if>
-							<c:if test="${product.manufactured eq true }">
-								<td>Sim</td>
-							</c:if>
+							
 							<c:if test="${product.active eq false}">
 								<td>Não</td>
 							</c:if>
@@ -80,8 +72,50 @@
 						</tr>	
 					</c:forEach>
 					</tbody>
-			
 				</table>
+				-->
+				<display:table name="${products}" id="product" class="responsive-table highlight" 
+					pagesize="5" export="true" sort="list" requestURI = "listProducts" >
+					<display:column property="id" title="ID" sortable="true" headerClass="sortable"></display:column>					
+					<display:column property="name" title="Nome" sortable="true" headerClass="sortable"></display:column>
+					<display:column property="uom" title="Und de medida" sortable="true" headerClass="sortable"></display:column>
+					<display:column property="price" title="Preço" sortable="true" headerClass="sortable"></display:column>
+					<display:column property="guaranteeDays" title="Garantia (dias)" sortable="true" headerClass="sortable"></display:column>
+					<display:column property="untPerPallet" title="Und por pallet" sortable="true" headerClass="sortable"></display:column>
+					<display:column title="Manufaturado" sortable="true" headerClass="sortable">
+						<c:if test="${product.manufactured eq false}">
+							Não
+						</c:if>
+						<c:if test="${product.manufactured eq true }">
+							Sim
+						</c:if>
+					</display:column>
+					<display:column title="Discontinuado" sortable="true" headerClass="sortable">
+						<c:if test="${product.discontinued eq false}">
+							Não
+								</c:if>
+								<c:if test="${product.discontinued eq true }">
+							Sim
+						</c:if>
+					</display:column>
+					<display:column title="Vendido" sortable="true">
+						<c:if test="${product.sold eq false}">
+							Não
+						</c:if>
+						<c:if test="${product.sold eq true }">
+							Sim
+						</c:if>
+					</display:column>
+					<display:column ><a href="showProduct?id=${product.id}"><i class="material-icons left">edit</i></a></display:column>
+					<display:column ><a href="removeProduct?id=${product.id}"><i class="material-icons left">delete</i></a></display:column>
+				</display:table>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col s12 m12">
+				<br />
+				<a href="newProduct" class="waves-effect waves-light btn"><i class="material-icons left">input</i>Novo produto</a>
+				<br />
 			</div>
 		</div>
 	</div>

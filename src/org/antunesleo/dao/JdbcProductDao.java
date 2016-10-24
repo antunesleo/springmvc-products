@@ -31,7 +31,7 @@ public class JdbcProductDao {
 	public List<Product> getList() {
 		try {
 			List<Product> products = new ArrayList<Product>();
-			String sql = "SELECT * FROM product WHERE active = true";
+			String sql = "SELECT * FROM product ORDER BY name";
 			PreparedStatement stmt = this.connection.prepareStatement(sql);
 			ResultSet rs = stmt.executeQuery();
 			while (rs.next()) {
@@ -145,6 +145,21 @@ public class JdbcProductDao {
 				return product;
 			}
 			return null;
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
+	
+	public int getNumberOfRecords() {
+		try {
+			String sql = "SELECT COUNT(*) as numberRecords FROM product";
+			PreparedStatement stmt = this.connection.prepareStatement(sql);
+			ResultSet rs = stmt.executeQuery();
+			int numberRecords = 0;
+			while (rs.next()) {
+				numberRecords = rs.getInt("numberRecords");
+			}
+			return numberRecords;
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}

@@ -43,22 +43,65 @@
             </div>
           </div>
           <div class="row">
-			<div class="input-field col s6	 m3">
-      				<input type="checkbox" class="filled-in" id="active" name="active" checked="${product.active}"/>
-     				<label for="active">Ativo</label>
-			</div>
-			<div class="input-field col s6 m3">
-      				<input type="checkbox" class="filled-in" id="sold" name="sold" checked="${product.sold}"/>
-     				<label for="sold">Vendido</label>
-			</div>
-			<div class="input-field col s6 m3">
-      				<input type="checkbox" class="filled-in" id="manufactured" name="manufactured" checked="${product.manufactured}"/>
-     				<label for="manufactured">Produzido</label>
-			</div>
-			<div class="input-field col s6 m3">
-      				<input type="checkbox" class="filled-in" id="discontinued" id="discontinued" checked="${product.discontinued}"/>
-     				<label for="discontinued">Discontinued</label>
-			</div>
+	          <c:choose>
+	          	<c:when test="${product.active==true}">
+	          		<div class="input-field col s6	 m3">
+	      				<input type="checkbox" class="filled-in" id="active" name="active" checked/>
+	     				<label for="active">Ativo</label>
+					</div>
+	          	</c:when>
+	          	<c:otherwise>
+	          	    <div class="input-field col s6	 m3">
+	      				<input type="checkbox" class="filled-in" id="active" name="active"/>
+	     				<label for="active">Ativo</label>
+					</div>
+	          	</c:otherwise>
+	          </c:choose>
+	          
+	          <c:choose>
+	          	<c:when test="${product.sold==true}">
+					<div class="input-field col s6 m3">
+		      				<input type="checkbox" class="filled-in" id="sold" name="sold" checked/>
+		     				<label for="sold">Vendido</label>
+					</div>
+	          	</c:when>
+	          	<c:otherwise>
+					<div class="input-field col s6 m3">
+		      				<input type="checkbox" class="filled-in" id="sold" name="sold"/>
+		     				<label for="sold">Vendido</label>
+					</div>
+	          	</c:otherwise>
+	          </c:choose>
+	
+	          <c:choose>
+	          	<c:when test="${product.manufactured==true}">
+					<div class="input-field col s6 m3">
+		      				<input type="checkbox" class="filled-in" id="manufactured" name="manufactured" checked/>
+		     				<label for="manufactured">Produzido</label>
+					</div>
+	          	</c:when>
+	          	<c:otherwise>
+					<div class="input-field col s6 m3">
+		      				<input type="checkbox" class="filled-in" id="manufactured" name="manufactured"/>
+		     				<label for="manufactured">Produzido</label>
+					</div>
+	          	</c:otherwise>
+	          </c:choose>
+	          
+	          <c:choose>
+	          	<c:when test="${product.discontinued==true}">
+					<div class="input-field col s6 m3">
+		      				<input type="checkbox" class="filled-in" id="discontinued" id="discontinued" checked="${product.discontinued}"/>
+		     				<label for="discontinued">Discontinued</label>
+					</div>
+	          	</c:when>
+	          	<c:otherwise>
+					<div class="input-field col s6 m3">
+		      				<input type="checkbox" class="filled-in" id="discontinued" id="discontinued"/>
+		     				<label for="discontinued">Discontinued</label>
+					</div>
+	          	</c:otherwise>
+	          </c:choose>
           </div>
           <div class="row">
 	        <div class="input-field col s6 m6">
