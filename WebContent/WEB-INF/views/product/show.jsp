@@ -14,11 +14,13 @@
 <body>
 	<c:import url="../resources/header.jsp"></c:import>
 	<div class="container">
+		<h4>Alterar tarefa ID = ${product.id}</h2>
 		<div class="row">
-	    <form class="col s12" method="post" action="addProduct">
+	    <form class="col s12" method="post" action="updateProduct">
+	    	<input type="hidden" name="id" value="${product.id}" />
 	      <div class="row">
 	        <div class="input-field col s6">
-	          <input id="name" name="name" type="text" class="validate">
+	          <input id="name" name="name" type="text" class="validate" value="${product.name}">
 	          <label for="name">Nome</label>
 	        </div>
 
@@ -34,41 +36,43 @@
 	      </div>
 	      <div class="row">
           	<div class="input-field col s12">
-         		<textarea id="description" name="description" class="materialize-textarea"></textarea>
+         		<textarea id="description" name="description" class="materialize-textarea">
+         			${product.description}
+         		</textarea>
          	    <label for="description">Descrição</label>
             </div>
           </div>
           <div class="row">
 			<div class="input-field col s6	 m3">
-      				<input type="checkbox" class="filled-in" id="active" name="active"/>
+      				<input type="checkbox" class="filled-in" id="active" name="active" checked="${product.active}"/>
      				<label for="active">Ativo</label>
 			</div>
 			<div class="input-field col s6 m3">
-      				<input type="checkbox" class="filled-in" id="sold" name="sold"/>
+      				<input type="checkbox" class="filled-in" id="sold" name="sold" checked="${product.sold}"/>
      				<label for="sold">Vendido</label>
 			</div>
 			<div class="input-field col s6 m3">
-      				<input type="checkbox" class="filled-in" id="manufactured" name="manufactured"/>
+      				<input type="checkbox" class="filled-in" id="manufactured" name="manufactured" checked="${product.manufactured}"/>
      				<label for="manufactured">Produzido</label>
 			</div>
 			<div class="input-field col s6 m3">
-      				<input type="checkbox" class="filled-in" id="discontinued" id="discontinued"/>
+      				<input type="checkbox" class="filled-in" id="discontinued" id="discontinued" checked="${product.discontinued}"/>
      				<label for="discontinued">Discontinued</label>
 			</div>
           </div>
           <div class="row">
 	        <div class="input-field col s6 m6">
-	          <input id="price" name="price"type="number" step="any" class="validate">
+	          <input id="price" name="price"type="number" step="any" class="validate" value="${product.price}">
 	          <label for="price">Preço</label>
 	        </div>
 	      </div>
 	      <div class="row">
 	        <div class="input-field col s6 m6">
-	          <input id="untPerPallet" name="untPerPallet" type="number" class="validate">
+	          <input id="untPerPallet" name="untPerPallet" type="number" class="validate" value="${product.untPerPallet}">
 	          <label for="untPerPallet">Und por pallet</label>
 	        </div>
 	      <div class="input-field col s6 m6">
-	          <input id="guaranteeDays" name="guaranteeDays" type="number" class="validate">
+	          <input id="guaranteeDays" name="guaranteeDays" type="number" class="validate" value="${product.guaranteeDays}">
 	          <label for="guaranteeDays">Dias de garantia</label>
 	        </div>
 	      </div>

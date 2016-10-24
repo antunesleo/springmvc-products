@@ -11,65 +11,78 @@
 	   <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css"/>
       <!--Let browser know website is optimized for mobile-->
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      <meta name="theme-color" content="#37474f" />
 </head>
 <body>
 	<c:import url="../resources/header.jsp" />
 	<div class="container">
 		<div class="row">
-			<br />
-			<a href="newProduct" class="waves-effect waves-light btn"><i class="material-icons left">input</i>Nova tarefa</a>
+			<div class="col s12 m12">
+				<br />
+				<a href="newProduct" class="waves-effect waves-light btn"><i class="material-icons left">input</i>Nova tarefa</a>
+			</div>
 		</div>
 		<div class="row">
-			<table class="bordered striped responsive-table">
-				<thead>
-					<tr>
-						<th>ID</th>
-						<th>Descrição</th>
-						<th>Nome</th>
-						<th>Manufaturado</th>
-						<th>Und. por pallet</th>
-						<th>Dias de garantia</th>
-						<th>Und. de medida</th>
-						<th>Vendido</th>
-						<th>Discontinuado</th>
-						<th>Preço</th>
-					</tr>
-				</thead>
-				<tbody>
-				<c:forEach items="${products}" var="product">
-					<tr>
-						<td>${product.id}</td>
-						<td>${product.description}</td>
-						<td>${product.name}</td>
-						<c:if test="${product.manufactured eq false}">
-							<td>Não</td>
-						</c:if>
-						<c:if test="${product.manufactured eq true }">
-							<td>Sim</td>
-						</c:if>
-						<td>${product.untPerPallet}</td>
-						<td>${product.guaranteeDays}</td>
-						<td>${product.uom}</td>
-						<c:if test="${product.sold eq false}">
-							<td>Não</td>
-						</c:if>
-						<c:if test="${product.sold eq true }">
-							<td>Sim</td>
-						</c:if>
-						<c:if test="${product.discontinued eq false}">
-							<td>Não</td>
-						</c:if>
-						<c:if test="${product.discontinued eq true }">
-							<td>Sim</td>
-						</c:if>
-						<td>${product.price}</td>
-						<td><a href="mostraTarefa?id=${product.id}"><i class="material-icons left">delete</i></a></td>
-						<td><a href="removeTarefa?id=${product.id}"><i class="material-icons left">edit</i></a></td>
-					</tr>	
-				</c:forEach>
-				</tbody>
-		
-			</table>
+			<div class="col s12 m12">
+				<table class="bordered striped responsive-table">
+					<thead>
+						<tr>
+							<th>ID</th>
+							<th>Descrição</th>
+							<th>Nome</th>
+							<th>Und. por pallet</th>
+							<th>Dias de garantia</th>
+							<th>Und. de medida</th>
+							<th>Vendido</th>
+							<th>Discontinuado</th>
+							<th>Manufaturado</th>
+							<th>Active</th>
+							<th>Preço</th>
+						</tr>
+					</thead>
+					<tbody>
+					<c:forEach items="${products}" var="product">
+						<tr>
+							<td>${product.id}</td>
+							<td>${product.description}</td>
+							<td>${product.name}</td>
+							<td>${product.untPerPallet}</td>
+							<td>${product.guaranteeDays}</td>
+							<td>${product.uom}</td>
+							<c:if test="${product.sold eq false}">
+								<td>Não</td>
+							</c:if>
+							<c:if test="${product.sold eq true }">
+								<td>Sim</td>
+							</c:if>
+							<c:if test="${product.discontinued eq false}">
+								<td>Não</td>
+							</c:if>
+							<c:if test="${product.discontinued eq true }">
+								<td>Sim</td>
+							</c:if>
+							<c:if test="${product.manufactured eq false}">
+								<td>Não</td>
+							</c:if>
+							<c:if test="${product.manufactured eq true }">
+								<td>Sim</td>
+							</c:if>
+							<c:if test="${product.active eq false}">
+								<td>Não</td>
+							</c:if>
+							<c:if test="${product.active eq true }">
+								<td>Sim</td>
+							</c:if>
+							
+							<td>${product.price}</td>
+							<td><a href="showProduct?id=${product.id}"><i class="material-icons left">edit</i></a></td>
+							<td><a href="removeProduct?id=${product.id}"><i class="material-icons left">delete</i></a></td>
+						</tr>	
+					</c:forEach>
+					</tbody>
+			
+				</table>
+			</div>
 		</div>
 	</div>
 	<c:import url="../resources/footer.jsp"></c:import>

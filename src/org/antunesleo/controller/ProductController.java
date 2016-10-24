@@ -41,4 +41,25 @@ public class ProductController {
 		return "product/form";
 	}
 	
+	@RequestMapping("removeProduct")
+	public String remove(Product product) {
+		JdbcProductDao dao = new JdbcProductDao();
+		dao.remove(product);
+		return "redirect:listProducts";
+	}
+	
+	@RequestMapping("showProduct")
+	public String show(Long id, Model model) {
+		JdbcProductDao dao = new JdbcProductDao();
+		model.addAttribute("product", dao.findById(id));
+		return "product/show";
+	}
+	
+	@RequestMapping("updateProduct")
+	public String update(Product product) {
+		JdbcProductDao dao = new JdbcProductDao();
+		dao.update(product);
+		return "redirect:listProducts";
+	}
+	
 }

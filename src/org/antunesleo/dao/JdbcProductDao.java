@@ -80,4 +80,73 @@ public class JdbcProductDao {
 			throw new RuntimeException(e);
 		}
 	}
+	
+	public void update(Product product) {
+		try {
+			if (product.getId() != null) {
+				String sql = "UPDATE product SET description = ?, name = ?, active = ?, discontinued = ?, sold = ?, "
+						+ "manufactured = ?, guaranteeDays = ?, price = ?, uom = ?, untPerPallet = ?, category = ?"
+						+ "WHERE id = ?";
+				PreparedStatement stmt = this.connection.prepareStatement(sql);
+				stmt.setString(1, product.getDescription());
+				stmt.setString(2, product.getName());
+				stmt.setBoolean(3, product.isActive());
+				stmt.setBoolean(4, product.isDiscontinued());
+				stmt.setBoolean(5, product.isSold());
+				stmt.setBoolean(6, product.isManufactured());
+				stmt.setInt(7, product.getGuaranteeDays());
+				stmt.setDouble(8, product.getPrice());
+				stmt.setString(9, product.getUom());
+				stmt.setInt(10, product.getUntPerPallet());
+				stmt.setString(11, product.getCategory());
+				stmt.setLong(12, product.getId());
+				stmt.execute();
+				stmt.close();
+			}
+		} catch(SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
+	
+	public void remove(Product product) {
+		try {
+			String sql = "DELETE FROM product WHERE id = ?";
+			PreparedStatement stmt = this.connection.prepareStatement(sql);
+			stmt.setLong(1, product.getId());
+			stmt.execute();
+			stmt.close();
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
+	
+	public Product findById(Long id) {
+		try {
+			if (id != null) {
+				String sql = "SELECT * FROM product WHERE id = ?";
+				PreparedStatement stmt = this.connection.prepareStatement(sql);
+				stmt.setLong(1, id);
+				ResultSet rs = stmt.executeQuery();
+				Product product = new Product();
+				while (rs.next()) {
+					product.setId(rs.getLong("id"));
+					product.setName(rs.getString("name"));
+					product.setDescription(rs.getString("description"));
+					product.setCategory(rs.getString("category"));
+					product.setActive(rs.getBoolean("active"));
+					product.setManufactured(rs.getBoolean("manufactured"));
+					product.setDiscontinued(rs.getBoolean("discontinued"));
+					product.setSold(rs.getBoolean("sold"));
+					product.setUom(rs.getString("uom"));
+					product.setUntPerPallet(rs.getInt("untPerPallet"));
+					product.setPrice(rs.getDouble("price"));
+					product.setGuaranteeDays(rs.getInt("guaranteeDays"));
+				}
+				return product;
+			}
+			return null;
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
 }
