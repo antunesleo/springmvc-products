@@ -74,7 +74,7 @@
 					</tbody>
 				</table>
 				-->
-				<display:table name="${products}" id="product" class="responsive-table highlight" 
+				<display:table name="${products}" id="product" class="responsive-table highlight striped" 
 					pagesize="5" export="true" sort="list" requestURI = "listProducts" >
 					<display:column property="id" title="ID" sortable="true" headerClass="sortable"></display:column>					
 					<display:column property="name" title="Nome" sortable="true" headerClass="sortable"></display:column>
