@@ -45,7 +45,7 @@ public class JdbcProductDao {
 				product.setManufactured(rs.getBoolean("manufactured"));
 				product.setGuaranteeDays(rs.getInt("guaranteeDays"));
 				product.setPrice(rs.getDouble("price"));
-				product.setUom(rs.getString("uom"));
+				product.setUom(rs.getInt("uom"));
 				product.setUntPerPallet(rs.getInt("untPerPallet"));	
 				product.setCategory(rs.getString("category"));
 				products.add(product);
@@ -71,7 +71,7 @@ public class JdbcProductDao {
 			stmt.setBoolean(6, product.isManufactured());
 			stmt.setInt(7, product.getGuaranteeDays());
 			stmt.setDouble(8, product.getPrice());
-			stmt.setString(9, product.getUom());
+			stmt.setInt(9, product.getUom());
 			stmt.setInt(10, product.getUntPerPallet());
 			stmt.setString(11, product.getCategory());
 			stmt.execute();
@@ -96,7 +96,7 @@ public class JdbcProductDao {
 				stmt.setBoolean(6, product.isManufactured());
 				stmt.setInt(7, product.getGuaranteeDays());
 				stmt.setDouble(8, product.getPrice());
-				stmt.setString(9, product.getUom());
+				stmt.setInt(9, product.getUom());
 				stmt.setInt(10, product.getUntPerPallet());
 				stmt.setString(11, product.getCategory());
 				stmt.setLong(12, product.getId());
@@ -128,6 +128,7 @@ public class JdbcProductDao {
 				stmt.setLong(1, id);
 				ResultSet rs = stmt.executeQuery();
 				Product product = new Product();
+				JdbcUomDao uomDao = new JdbcUomDao();
 				while (rs.next()) {
 					product.setId(rs.getLong("id"));
 					product.setName(rs.getString("name"));
@@ -137,7 +138,10 @@ public class JdbcProductDao {
 					product.setManufactured(rs.getBoolean("manufactured"));
 					product.setDiscontinued(rs.getBoolean("discontinued"));
 					product.setSold(rs.getBoolean("sold"));
-					product.setUom(rs.getString("uom"));
+					if(rs.getInt("uom") != 0) {
+						product.setUom(rs.getInt("uom"));
+						product.setUomName(uomDao.getNameById(id));
+					}
 					product.setUntPerPallet(rs.getInt("untPerPallet"));
 					product.setPrice(rs.getDouble("price"));
 					product.setGuaranteeDays(rs.getInt("guaranteeDays"));

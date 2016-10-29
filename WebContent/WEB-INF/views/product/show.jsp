@@ -26,12 +26,11 @@
 
 			  <div class="input-field col s6">
 			    <select name="uom">
-			      <option value="" disabled selected>UDM</option>
-			      <option value="1">KG</option>
-			      <option value="2">L</option>
-			      <option value="3">mL</option>
-			      <option value="3">M</option>
-			    </select>
+					<option value="product.uom">${product.uomName}</option>
+					<c:forEach items="${uomDao.getList(true)}" var="uom">
+						<option value ="uom.id">${uom.name}</option>
+					</c:forEach>
+				</select>
 			  </div>
 	      </div>
 	      <div class="row">

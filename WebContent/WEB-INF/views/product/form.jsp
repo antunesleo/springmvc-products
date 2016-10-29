@@ -24,11 +24,9 @@
 
 			  <div class="input-field col s6">
 			    <select name="uom">
-			      <option value="" disabled selected>UDM</option>
-			      <option value="1">KG</option>
-			      <option value="2">L</option>
-			      <option value="3">mL</option>
-			      <option value="3">M</option>
+			    	<c:forEach items="${uoms}" var="uom">
+			    		<option value="${uom.id}">${uom.name}</option>
+			    	</c:forEach>
 			    </select>
 			  </div>
 	      </div>
@@ -72,6 +70,15 @@
 	          <label for="guaranteeDays">Dias de garantia</label>
 	        </div>
 	      </div>
+	     <div class="row">
+	        <div class="input-field col s6 m6">
+				<select>
+					<c:forEach items="${products}" var="product">
+						<option value="${product.id}">${product.name}</option>
+					</c:forEach>
+				</select>
+	        </div>
+	     </div>
 	     <div class="row">
 	     	<div class="input-field col s12">
 	     	 <button class="btn waves-effect waves-light" type="submit" name="action">Enviar

@@ -78,7 +78,9 @@
 					pagesize="5" export="true" sort="list" requestURI = "listProducts" >
 					<display:column property="id" title="ID" sortable="true" headerClass="sortable"></display:column>					
 					<display:column property="name" title="Nome" sortable="true" headerClass="sortable"></display:column>
-					<display:column property="uom" title="Und de medida" sortable="true" headerClass="sortable"></display:column>
+					<display:column title="UOM" sortable="true" headerClass="sortable">
+						${uomDao.getNameById(product.uom)}
+					</display:column>
 					<display:column property="price" title="Preço" sortable="true" headerClass="sortable"></display:column>
 					<display:column property="guaranteeDays" title="Garantia (dias)" sortable="true" headerClass="sortable"></display:column>
 					<display:column property="untPerPallet" title="Und por pallet" sortable="true" headerClass="sortable"></display:column>

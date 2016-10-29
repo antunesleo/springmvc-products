@@ -5,7 +5,9 @@ import java.util.List;
 import javax.validation.Valid;
 
 import org.antunesleo.dao.JdbcProductDao;
+import org.antunesleo.dao.JdbcUomDao;
 import org.antunesleo.model.Product;
+import org.antunesleo.model.Uom;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -23,6 +25,8 @@ public class ProductController {
 		JdbcProductDao dao = new JdbcProductDao();
 		List<Product> products = dao.getList();
 		model.addAttribute("products", products);
+		JdbcUomDao uomDao = new JdbcUomDao();
+		model.addAttribute("uomDao",uomDao);
 		return "product/list";
 	}
 	
@@ -37,7 +41,11 @@ public class ProductController {
 	}
 	
 	@RequestMapping("/newProduct")
-	public String form() {
+	public String form(Model model) {
+		JdbcProductDao dao = new JdbcProductDao();
+		JdbcUomDao uomDao = new JdbcUomDao();
+		model.addAttribute("uoms", uomDao.getList(true));		
+		model.addAttribute("products", dao.getList());
 		return "product/form";
 	}
 	
@@ -52,6 +60,8 @@ public class ProductController {
 	public String show(Long id, Model model) {
 		JdbcProductDao dao = new JdbcProductDao();
 		model.addAttribute("product", dao.findById(id));
+		JdbcUomDao uomDao = new JdbcUomDao();
+		model.addAttribute("uomDao",uomDao);
 		return "product/show";
 	}
 	

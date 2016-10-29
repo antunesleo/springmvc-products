@@ -12,7 +12,8 @@ public class Product {
 	private	boolean active;
 	private Integer untPerPallet;
 	private Integer guaranteeDays;
-	private String uom;
+	private Integer uom;
+	private String 	uomName;
 	private boolean manufactured;
 	private boolean sold;
 	private boolean discontinued;
@@ -36,7 +37,7 @@ public class Product {
 	public Integer getGuaranteeDays() {
 		return guaranteeDays;
 	}
-	public String getUom() {
+	public Integer getUom() {
 		return uom;
 	}
 	public boolean isManufactured() {
@@ -69,7 +70,7 @@ public class Product {
 	public void setGuaranteeDays(Integer guaranteeDays) {
 		this.guaranteeDays = guaranteeDays;
 	}
-	public void setUom(String uom) {
+	public void setUom(Integer uom) {
 		this.uom = uom;
 	}
 	public void setManufactured(boolean manufactured) {
@@ -89,6 +90,12 @@ public class Product {
 	}
 	public void setCategory(String category) {
 		this.category = category;
+	}
+	public String getUomName() {
+		return uomName;
+	}
+	public void setUomName(String uomName) {
+		this.uomName = uomName;
 	}
 	
 }
