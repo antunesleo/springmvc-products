@@ -8,12 +8,10 @@ public class Product {
 	private Long id;
 	private String name;
 	private String description;
-	private String category;
 	private	boolean active;
 	private Integer untPerPallet;
 	private Integer guaranteeDays;
-	private Integer uom;
-	private String 	uomName;
+	private String idBosta;
 	private boolean manufactured;
 	private boolean sold;
 	private boolean discontinued;
@@ -37,8 +35,8 @@ public class Product {
 	public Integer getGuaranteeDays() {
 		return guaranteeDays;
 	}
-	public Integer getUom() {
-		return uom;
+	public String getIdBosta() {
+		return idBosta;
 	}
 	public boolean isManufactured() {
 		return manufactured;
@@ -70,8 +68,9 @@ public class Product {
 	public void setGuaranteeDays(Integer guaranteeDays) {
 		this.guaranteeDays = guaranteeDays;
 	}
-	public void setUom(Integer uom) {
-		this.uom = uom;
+
+	public void setIdBosta(String idBosta) {
+		this.idBosta = idBosta;
 	}
 	public void setManufactured(boolean manufactured) {
 		this.manufactured = manufactured;
@@ -84,18 +83,6 @@ public class Product {
 	}
 	public void setPrice(double price) {
 		this.price = price;
-	}
-	public String getCategory() {
-		return category;
-	}
-	public void setCategory(String category) {
-		this.category = category;
-	}
-	public String getUomName() {
-		return uomName;
-	}
-	public void setUomName(String uomName) {
-		this.uomName = uomName;
 	}
 	
 }

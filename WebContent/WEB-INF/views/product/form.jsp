@@ -21,14 +21,6 @@
 	          <input id="name" name="name" type="text" class="validate">
 	          <label for="name">Nome</label>
 	        </div>
-
-			  <div class="input-field col s6">
-			    <select name="uom">
-			    	<c:forEach items="${uoms}" var="uom">
-			    		<option value="${uom.id}">${uom.name}</option>
-			    	</c:forEach>
-			    </select>
-			  </div>
 	      </div>
 	      <div class="row">
           	<div class="input-field col s12">
@@ -70,15 +62,7 @@
 	          <label for="guaranteeDays">Dias de garantia</label>
 	        </div>
 	      </div>
-	     <div class="row">
-	        <div class="input-field col s6 m6">
-				<select>
-					<c:forEach items="${products}" var="product">
-						<option value="${product.id}">${product.name}</option>
-					</c:forEach>
-				</select>
-	        </div>
-	     </div>
+	
 	     <div class="row">
 	     	<div class="input-field col s12">
 	     	 <button class="btn waves-effect waves-light" type="submit" name="action">Enviar

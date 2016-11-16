@@ -7,7 +7,6 @@ import javax.validation.Valid;
 import org.antunesleo.dao.JdbcProductDao;
 import org.antunesleo.dao.JdbcUomDao;
 import org.antunesleo.model.Product;
-import org.antunesleo.model.Uom;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -25,8 +24,6 @@ public class ProductController {
 		JdbcProductDao dao = new JdbcProductDao();
 		List<Product> products = dao.getList();
 		model.addAttribute("products", products);
-		JdbcUomDao uomDao = new JdbcUomDao();
-		model.addAttribute("uomDao",uomDao);
 		return "product/list";
 	}
 	

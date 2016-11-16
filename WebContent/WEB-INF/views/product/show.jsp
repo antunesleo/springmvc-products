@@ -14,7 +14,7 @@
 <body>
 	<c:import url="../resources/header.jsp"></c:import>
 	<div class="container">
-		<h4>Alterar tarefa ID = ${product.id}</h2>
+		<h4>Alterar tarefa ID = ${product.id}</h4>
 		<div class="row">
 	    <form class="col s12" method="post" action="updateProduct">
 	    	<input type="hidden" name="id" value="${product.id}" />
@@ -24,14 +24,6 @@
 	          <label for="name">Nome</label>
 	        </div>
 
-			  <div class="input-field col s6">
-			    <select name="uom">
-					<option value="product.uom">${product.uomName}</option>
-					<c:forEach items="${uomDao.getList(true)}" var="uom">
-						<option value ="uom.id">${uom.name}</option>
-					</c:forEach>
-				</select>
-			  </div>
 	      </div>
 	      <div class="row">
           	<div class="input-field col s12">

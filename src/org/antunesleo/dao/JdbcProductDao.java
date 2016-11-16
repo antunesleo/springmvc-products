@@ -45,9 +45,7 @@ public class JdbcProductDao {
 				product.setManufactured(rs.getBoolean("manufactured"));
 				product.setGuaranteeDays(rs.getInt("guaranteeDays"));
 				product.setPrice(rs.getDouble("price"));
-				product.setUom(rs.getInt("uom"));
 				product.setUntPerPallet(rs.getInt("untPerPallet"));	
-				product.setCategory(rs.getString("category"));
 				products.add(product);
 			}
 			rs.close();
@@ -61,7 +59,7 @@ public class JdbcProductDao {
 	public void add(Product product) {
 		try {
 			String sql = "INSERT INTO product (description, name, active, discontinued, sold, manufactured, "
-					+ "guaranteeDays, price, uom, untPerPallet, category) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
+					+ "guaranteeDays, price, untPerPallet) VALUES (?,?,?,?,?,?,?,?,?)";
 			PreparedStatement stmt = this.connection.prepareStatement(sql);
 			stmt.setString(1, product.getDescription());
 			stmt.setString(2, product.getName());
@@ -71,9 +69,7 @@ public class JdbcProductDao {
 			stmt.setBoolean(6, product.isManufactured());
 			stmt.setInt(7, product.getGuaranteeDays());
 			stmt.setDouble(8, product.getPrice());
-			stmt.setInt(9, product.getUom());
-			stmt.setInt(10, product.getUntPerPallet());
-			stmt.setString(11, product.getCategory());
+			stmt.setInt(9, product.getUntPerPallet());
 			stmt.execute();
 			stmt.close();
 		} catch (SQLException e) {
@@ -85,7 +81,7 @@ public class JdbcProductDao {
 		try {
 			if (product.getId() != null) {
 				String sql = "UPDATE product SET description = ?, name = ?, active = ?, discontinued = ?, sold = ?, "
-						+ "manufactured = ?, guaranteeDays = ?, price = ?, uom = ?, untPerPallet = ?, category = ?"
+						+ "manufactured = ?, guaranteeDays = ?, price = ?, untPerPallet = ?"
 						+ "WHERE id = ?";
 				PreparedStatement stmt = this.connection.prepareStatement(sql);
 				stmt.setString(1, product.getDescription());
@@ -96,10 +92,8 @@ public class JdbcProductDao {
 				stmt.setBoolean(6, product.isManufactured());
 				stmt.setInt(7, product.getGuaranteeDays());
 				stmt.setDouble(8, product.getPrice());
-				stmt.setInt(9, product.getUom());
-				stmt.setInt(10, product.getUntPerPallet());
-				stmt.setString(11, product.getCategory());
-				stmt.setLong(12, product.getId());
+				stmt.setInt(9, product.getUntPerPallet()); 
+				stmt.setLong(10, product.getId());
 				stmt.execute();
 				stmt.close();
 			}
@@ -128,20 +122,14 @@ public class JdbcProductDao {
 				stmt.setLong(1, id);
 				ResultSet rs = stmt.executeQuery();
 				Product product = new Product();
-				JdbcUomDao uomDao = new JdbcUomDao();
 				while (rs.next()) {
 					product.setId(rs.getLong("id"));
 					product.setName(rs.getString("name"));
 					product.setDescription(rs.getString("description"));
-					product.setCategory(rs.getString("category"));
 					product.setActive(rs.getBoolean("active"));
 					product.setManufactured(rs.getBoolean("manufactured"));
 					product.setDiscontinued(rs.getBoolean("discontinued"));
 					product.setSold(rs.getBoolean("sold"));
-					if(rs.getInt("uom") != 0) {
-						product.setUom(rs.getInt("uom"));
-						product.setUomName(uomDao.getNameById(id));
-					}
 					product.setUntPerPallet(rs.getInt("untPerPallet"));
 					product.setPrice(rs.getDouble("price"));
 					product.setGuaranteeDays(rs.getInt("guaranteeDays"));
