@@ -15,7 +15,9 @@ Springmvc-Products it's a sample project, a product crud using Java, Spring as M
 All the dependencies are included on the repo, you just need to clone the repo, build the dependencies and start the server.
 [SMVC-P maybe will run in this URL](http://localhost:8080/springmvc-products)
 
+
 Mobile design:
+
 ![mobile](https://cloud.githubusercontent.com/assets/13929952/20489397/a68ef56e-aff1-11e6-8eac-726a018875be.png)
 
 Desktop Design:
