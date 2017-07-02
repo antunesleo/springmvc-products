@@ -10,12 +10,48 @@
       <!--Import materialize.css-->
       <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/materialize.min.css"  media="screen,projection"/>
 	   <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css"/>
+	   <link type="text/css" rel="stylesheet" href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css"/>
       <!--Let browser know website is optimized for mobile-->
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
       <meta name="theme-color" content="#37474f" />
 </head>
 <body>
 	<c:import url="../resources/header.jsp" />
+	<div class="container">
+		<p>Exemplo com o data table</p>
+		<div class="row">
+			<div class="col s12 m12">
+				<table id="example" class="display" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>nome</th>
+                <th>Preço</th>
+                <th>Garantia</th>
+                <th>Und por Pallet</th>
+                <th>Manufaturado</th>
+                <th>Descontinuado</th>
+                <th>Vendido</th>
+            </tr>
+        </thead>
+   		<tbody>
+   			<tr>
+   				<c:forEach items="${products}" var="product">
+   					<td>${product.id}</td>
+   					<td>${product.name}</td>
+   					<td>${product.price}</td>
+   					<td>${product.guaranteeDays}</td>
+   					<td>${product.untPerPallet}</td>
+   					<td>${product.manufactured}</td>
+   					<td>${product.discontinued}</td>
+   					<td>${product.sold}</td>
+   				</c:forEach>
+   			</tr>
+        </tbody>
+    </table>
+			</div>
+		</div>
+	</div>
 	<div class="container">
 		<br />
 		<div class="row">
@@ -65,7 +101,10 @@
 		</div>
 	</div>
 	<c:import url="../resources/footer.jsp"></c:import>
-	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.2.1.js"
+  		integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/materialize.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/myjs.js"></script>
 </body>
 </html>
