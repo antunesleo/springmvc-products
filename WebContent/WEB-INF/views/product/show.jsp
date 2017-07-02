@@ -49,65 +49,11 @@
 	          	</c:otherwise>
 	          </c:choose>
 	          
-	          <c:choose>
-	          	<c:when test="${product.sold==true}">
-					<div class="input-field col s6 m3">
-		      				<input type="checkbox" class="filled-in" id="sold" name="sold" checked/>
-		     				<label for="sold">Vendido</label>
-					</div>
-	          	</c:when>
-	          	<c:otherwise>
-					<div class="input-field col s6 m3">
-		      				<input type="checkbox" class="filled-in" id="sold" name="sold"/>
-		     				<label for="sold">Vendido</label>
-					</div>
-	          	</c:otherwise>
-	          </c:choose>
-	
-	          <c:choose>
-	          	<c:when test="${product.manufactured==true}">
-					<div class="input-field col s6 m3">
-		      				<input type="checkbox" class="filled-in" id="manufactured" name="manufactured" checked/>
-		     				<label for="manufactured">Produzido</label>
-					</div>
-	          	</c:when>
-	          	<c:otherwise>
-					<div class="input-field col s6 m3">
-		      				<input type="checkbox" class="filled-in" id="manufactured" name="manufactured"/>
-		     				<label for="manufactured">Produzido</label>
-					</div>
-	          	</c:otherwise>
-	          </c:choose>
-	          
-	          <c:choose>
-	          	<c:when test="${product.discontinued==true}">
-					<div class="input-field col s6 m3">
-		      				<input type="checkbox" class="filled-in" id="discontinued" id="discontinued" checked="${product.discontinued}"/>
-		     				<label for="discontinued">Discontinued</label>
-					</div>
-	          	</c:when>
-	          	<c:otherwise>
-					<div class="input-field col s6 m3">
-		      				<input type="checkbox" class="filled-in" id="discontinued" id="discontinued"/>
-		     				<label for="discontinued">Discontinued</label>
-					</div>
-	          	</c:otherwise>
-	          </c:choose>
           </div>
           <div class="row">
 	        <div class="input-field col s6 m6">
 	          <input id="price" name="price"type="number" step="any" class="validate" value="${product.price}">
 	          <label for="price">Preço</label>
-	        </div>
-	      </div>
-	      <div class="row">
-	        <div class="input-field col s6 m6">
-	          <input id="untPerPallet" name="untPerPallet" type="number" class="validate" value="${product.untPerPallet}">
-	          <label for="untPerPallet">Und por pallet</label>
-	        </div>
-	      <div class="input-field col s6 m6">
-	          <input id="guaranteeDays" name="guaranteeDays" type="number" class="validate" value="${product.guaranteeDays}">
-	          <label for="guaranteeDays">Dias de garantia</label>
 	        </div>
 	      </div>
 	     <div class="row">

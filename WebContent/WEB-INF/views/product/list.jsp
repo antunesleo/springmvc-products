@@ -18,85 +18,44 @@
 <body>
 	<c:import url="../resources/header.jsp" />
 	<div class="container">
-		<p>Exemplo com o data table</p>
+		<div class="row">
+			<div class="col s6 m6">
+				<h5>Product list</h5>
+			</div>
+			<div class="col s6 m6">
+				<a class="waves-effect waves-light btn" id="newProduct" href="newProduct">add</a>
+			</div>
+		</div>
 		<div class="row">
 			<div class="col s12 m12">
 				<table id="example" class="display" cellspacing="0" width="100%">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>nome</th>
-                <th>Preço</th>
-                <th>Garantia</th>
-                <th>Und por Pallet</th>
-                <th>Manufaturado</th>
-                <th>Descontinuado</th>
-                <th>Vendido</th>
-            </tr>
-        </thead>
-   		<tbody>
-   			<tr>
-   				<c:forEach items="${products}" var="product">
-   					<td>${product.id}</td>
-   					<td>${product.name}</td>
-   					<td>${product.price}</td>
-   					<td>${product.guaranteeDays}</td>
-   					<td>${product.untPerPallet}</td>
-   					<td>${product.manufactured}</td>
-   					<td>${product.discontinued}</td>
-   					<td>${product.sold}</td>
-   				</c:forEach>
-   			</tr>
-        </tbody>
-    </table>
-			</div>
-		</div>
-	</div>
-	<div class="container">
-		<br />
-		<div class="row">
-			<div class="col s12 m12">
-				<display:table name="${products}" id="product" class="responsive-table highlight striped" 
-					pagesize="5" export="true" sort="list" requestURI = "listProducts" >
-					<display:column property="id" title="ID" sortable="true" headerClass="sortable"></display:column>					
-					<display:column property="name" title="Nome" sortable="true" headerClass="sortable"></display:column>
-					<display:column property="price" title="Preço" sortable="true" headerClass="sortable"></display:column>
-					<display:column property="guaranteeDays" title="Garantia (dias)" sortable="true" headerClass="sortable"></display:column>
-					<display:column property="untPerPallet" title="Und por pallet" sortable="true" headerClass="sortable"></display:column>
-					<display:column title="Manufaturado" sortable="true" headerClass="sortable">
-						<c:if test="${product.manufactured eq false}">
-							Não
-						</c:if>
-						<c:if test="${product.manufactured eq true }">
-							Sim
-						</c:if>
-					</display:column>
-					<display:column title="Discontinuado" sortable="true" headerClass="sortable">
-						<c:if test="${product.discontinued eq false}">
-							Não
-								</c:if>
-								<c:if test="${product.discontinued eq true }">
-							Sim
-						</c:if>
-					</display:column>
-					<display:column title="Vendido" sortable="true">
-						<c:if test="${product.sold eq false}">
-							Não
-						</c:if>
-						<c:if test="${product.sold eq true }">
-							Sim
-						</c:if>
-					</display:column>
-					<display:column ><a href="showProduct?id=${product.id}"><i class="material-icons left">edit</i></a></display:column>
-					<display:column ><a href="removeProduct?id=${product.id}"><i class="material-icons left">delete</i></a></display:column>
-				</display:table>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col s12 m12">
-				<br />
-				<a href="newProduct" class="waves-effect waves-light btn"><i class="material-icons left">input</i>Novo produto</a>
-				<br />
+			        <thead>
+			            <tr>
+			                <th>Id</th>
+			                <th>nome</th>
+			                <th>Preço</th>
+			                <th>Ativo</th>
+			                <th>Ações</th>
+			            </tr>
+			        </thead>
+			   		<tbody>
+			   			<c:forEach items="${products}" var="product">
+			   				<tr>
+			   					<td>${product.id}</td>
+			   					<td>${product.name}</td>
+			   					<td>${product.price}</td>
+				   				<c:choose>
+							       <c:when test="${product.active==true}"> <td>Sim</td> </c:when>
+							       <c:otherwise><td>Não</td></c:otherwise>
+							    </c:choose>
+							    <td>
+								    <a href="showProduct?id=${product.id}"><i class="material-icons left">edit</i></a>
+									<a href="removeProduct?id=${product.id}"><i class="material-icons left">delete</i></a>
+							    </td>
+			   				</tr>
+			   			</c:forEach>
+			        </tbody>
+    			</table>
 			</div>
 		</div>
 	</div>

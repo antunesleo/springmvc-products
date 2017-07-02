@@ -9,12 +9,6 @@ public class Product {
 	private String name;
 	private String description;
 	private	boolean active;
-	private Integer untPerPallet;
-	private Integer guaranteeDays;
-	private String idBosta;
-	private boolean manufactured;
-	private boolean sold;
-	private boolean discontinued;
 	private double price;	
 	
 	public Long getId() {
@@ -28,24 +22,6 @@ public class Product {
 	}
 	public boolean isActive() {
 		return active;
-	}
-	public Integer getUntPerPallet() {
-		return untPerPallet;
-	}
-	public Integer getGuaranteeDays() {
-		return guaranteeDays;
-	}
-	public String getIdBosta() {
-		return idBosta;
-	}
-	public boolean isManufactured() {
-		return manufactured;
-	}
-	public boolean isSold() {
-		return sold;
-	}
-	public boolean isDiscontinued() {
-		return discontinued;
 	}
 	public double getPrice() {
 		return price;
@@ -62,27 +38,7 @@ public class Product {
 	public void setActive(boolean active) {
 		this.active = active;
 	}
-	public void setUntPerPallet(Integer untPerPallet) {
-		this.untPerPallet = untPerPallet;
-	}
-	public void setGuaranteeDays(Integer guaranteeDays) {
-		this.guaranteeDays = guaranteeDays;
-	}
-
-	public void setIdBosta(String idBosta) {
-		this.idBosta = idBosta;
-	}
-	public void setManufactured(boolean manufactured) {
-		this.manufactured = manufactured;
-	}
-	public void setSold(boolean sold) {
-		this.sold = sold;
-	}
-	public void setDiscontinued(boolean discontinued) {
-		this.discontinued = discontinued;
-	}
 	public void setPrice(double price) {
 		this.price = price;
 	}
-	
 }

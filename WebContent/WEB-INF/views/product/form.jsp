@@ -33,18 +33,6 @@
       				<input type="checkbox" class="filled-in" id="active" name="active"/>
      				<label for="active">Ativo</label>
 			</div>
-			<div class="input-field col s6 m3">
-      				<input type="checkbox" class="filled-in" id="sold" name="sold"/>
-     				<label for="sold">Vendido</label>
-			</div>
-			<div class="input-field col s6 m3">
-      				<input type="checkbox" class="filled-in" id="manufactured" name="manufactured"/>
-     				<label for="manufactured">Produzido</label>
-			</div>
-			<div class="input-field col s6 m3">
-      				<input type="checkbox" class="filled-in" id="discontinued" id="discontinued"/>
-     				<label for="discontinued">Discontinued</label>
-			</div>
           </div>
           <div class="row">
 	        <div class="input-field col s6 m6">
@@ -52,17 +40,6 @@
 	          <label for="price">Preço</label>
 	        </div>
 	      </div>
-	      <div class="row">
-	        <div class="input-field col s6 m6">
-	          <input id="untPerPallet" name="untPerPallet" type="number" class="validate">
-	          <label for="untPerPallet">Und por pallet</label>
-	        </div>
-	      <div class="input-field col s6 m6">
-	          <input id="guaranteeDays" name="guaranteeDays" type="number" class="validate">
-	          <label for="guaranteeDays">Dias de garantia</label>
-	        </div>
-	      </div>
-	
 	     <div class="row">
 	     	<div class="input-field col s12">
 	     	 <button class="btn waves-effect waves-light" type="submit" name="action">Enviar
