@@ -3,7 +3,7 @@ package org.antunesleo.jdbc;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-
+import com.mysql.jdbc.Driver;
 /**
  * @author antunesleo
  *
@@ -11,9 +11,9 @@ import java.sql.SQLException;
 public class ConnectionFactory {
 	public Connection getConnection() {
 		try {
-			Class.forName("org.postgresql.Driver");
+			Class.forName("com.mysql.jdbc.Driver");
 			return DriverManager.getConnection(
-					"jdbc:postgresql://localhost:5432/springmvc-product","antunesleo","");
+					"jdbc:mysql://localhost:3306/springmvcproducts","root","toor");
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}
