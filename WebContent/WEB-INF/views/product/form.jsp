@@ -21,6 +21,14 @@
 	          <input id="name" name="name" type="text" class="validate">
 	          <label for="name">Nome</label>
 	        </div>
+	        <div class="input-field col s6">
+	           <select id="categorie" name="categorie">
+			      <option value="" disabled selected>Selecione a categoria</option>
+			      <c:forEach items="${categories}" var="categorie">
+			          <option value="${categorie.id}"> ${categorie.name} </option>
+			      </c:forEach>
+    			</select>
+	        </div>
 	      </div>
 	      <div class="row">
           	<div class="input-field col s12">
@@ -53,6 +61,10 @@
 	<c:import url="../resources/footer.jsp"></c:import>
 	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/materialize.min.js"></script>
-    <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/myjs.js"></script>
+    	<script>
+		$(document).ready(function() {
+		    $('select').material_select();
+		});
+	</script>
 </body>
 </html>

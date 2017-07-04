@@ -35,6 +35,7 @@
 			                <th>nome</th>
 			                <th>Preço</th>
 			                <th>Ativo</th>
+			                <th>Categoria</th>
 			                <th>Ações</th>
 			            </tr>
 			        </thead>
@@ -48,6 +49,7 @@
 							       <c:when test="${product.active==true}"> <td>Sim</td> </c:when>
 							       <c:otherwise><td>Não</td></c:otherwise>
 							    </c:choose>
+							    <td>${product.categorie.name}</td>
 							    <td>
 								    <a href="showProduct?id=${product.id}"><i class="material-icons left">edit</i></a>
 									<a href="removeProduct?id=${product.id}"><i class="material-icons left">delete</i></a>

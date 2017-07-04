@@ -10,6 +10,7 @@ public class Product {
 	private String description;
 	private	boolean active;
 	private double price;	
+	private Categorie categorie;
 	
 	public Long getId() {
 		return id;
@@ -40,5 +41,11 @@ public class Product {
 	}
 	public void setPrice(double price) {
 		this.price = price;
+	}
+	public Categorie getCategorie() {
+		return categorie;
+	}
+	public void setCategorie(Categorie categorie) {
+		this.categorie = categorie;
 	}
 }
