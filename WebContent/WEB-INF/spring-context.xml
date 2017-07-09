@@ -30,7 +30,7 @@
 	      class="org.springframework.context.support.ConversionServiceFactoryBean">
 	    <property name="converters">
 	        <list>
-	            <bean class="org.antunesleo.converter.StringToCategoryConverter" />
+	            <bean class="org.antunesleo.products.converter.StringToCategoryConverter" />
 	        </list>
 	    </property>
 	</bean>
