@@ -18,12 +18,12 @@
 <body>
 	<c:import url="../resources/header.jsp" />
 	<div class="container">
-		<div class="row">
-			<div class="col s6 m6">
+		<div class="row  top-grid">
+			<div class="col s3 m3">
 				<h5>Product list</h5>
 			</div>
-			<div class="col s6 m6">
-				<a class="waves-effect waves-light btn" id="newProduct" href="newProduct">add</a>
+			<div class="col s9 m9">
+				<a class="waves-effect waves-light btn add-button" id="newProduct" href="newProduct" >add</a>
 			</div>
 		</div>
 		<div class="row">

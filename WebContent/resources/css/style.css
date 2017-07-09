@@ -10,3 +10,12 @@ div.exportlinks {
 		padding-top: 20px;
 		font-size: 1.5rem;
 }
+
+.top-grid {
+	padding-top: 3% !important;
+	
+}
+
+.add-button {
+	float:right;
+}

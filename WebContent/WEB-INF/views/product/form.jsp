@@ -18,11 +18,11 @@
 	    <form class="col s12" method="post" action="addProduct">
 	      <div class="row">
 	        <div class="input-field col s6">
-	          <input id="name" name="name" type="text" class="validate">
+	          <input id="name" name="name" type="text" class="validate" required>
 	          <label for="name">Nome</label>
 	        </div>
 	        <div class="input-field col s6">
-	           <select id="categorie" name="categorie">
+	           <select id="categorie" name="categorie" required>
 			      <option value="" disabled selected>Selecione a categoria</option>
 			      <c:forEach items="${categories}" var="categorie">
 			          <option value="${categorie.id}"> ${categorie.name} </option>
@@ -44,7 +44,7 @@
           </div>
           <div class="row">
 	        <div class="input-field col s6 m6">
-	          <input id="price" name="price"type="number" step="any" class="validate">
+	          <input id="price" name="price"type="number" step="any" class="validate" required>
 	          <label for="price">Preço</label>
 	        </div>
 	      </div>
@@ -61,9 +61,12 @@
 	<c:import url="../resources/footer.jsp"></c:import>
 	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/materialize.min.js"></script>
-    	<script>
+    <script>
 		$(document).ready(function() {
 		    $('select').material_select();
+		});
+		$("select[required]").css({
+			display: "block", height: 0, padding: 0, width: 0, position: 'absolute'
 		});
 	</script>
 </body>
